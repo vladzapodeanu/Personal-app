@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+
+    <script src="/lib/jquery.min.js"></script>
+    <script src="/lib/underscore-1.4.4.min.js"></script>
+    <script src="/lib/bootstrap.min.js"></script>
+    <script src="/lib/angular/angular.js"></script>
+    <script src="/js/eventsCtrl.js"></script>
+    <script type="text/javascript" src="js/map.js"></script>
+    <script src="https://rawgithub.com/gsklee/ngStorage/master/ngStorage.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/app.css"/>
+    <title>MyProfile</title>
+
+</head>
+
+<body ng-app="eventsApp">
+<form ng-app="eventsApp" ng-controller="eventsCtrl">
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link" href="Main.html">New Booking</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="MyProfile.html">My Profile</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="MyBookings.html">My Bookings</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="star.html">Rate App</a>
+        </li>
+        <li class="nav-item">
+            <a  class="nav-link"  ng-click="logOut()">Logout</a>
+        </li>
+    </ul>
+</form>
+
+<form name="myForm" ng-controller="eventsCtrl">
+<div class="marginProfile" ng-controller="eventsCtrl" data-ng-init="initMyProfile()">
+
+
+        <div class="containerMid">
+            <label for="email" style="margin:auto;"><p>Name:</p></label>
+            <input type="profile" placeholder="Name..." id="name" name="name" ng-model="name">
+        </div>
+
+        <div class="containerMid">
+            <label for="email" style="margin:auto;"><p>Address:</p></label>
+            <input type="profile" placeholder="Address..." id="address" name="address" ng-model="address">
+        </div>
+
+        <div class="containerMid">
+            <label for="email" style="margin:auto;"><p>Email:</p></label>
+            <input type="profile" placeholder="Email..." id="emailP" name="emailP"  ng-pattern="emailPAT" ng-model="emailP">
+            <span class="error" ng-show="myForm.emailP.$error.required">Required!</span>
+            <span class="error" ng-show="myForm.emailP.$error.pattern">Please match pattern[example@example.com]</span>
+        </div>
+
+
+        <div class="containerMid">
+            <label style="margin:auto;"><p>Phone Number:</p></label>
+            <input type="profile" placeholder="Phone Number..." id="phoneNumber" name="phoneNumber" ng-pattern="phonenumber" ng-model="phoneNumber">
+            <span class="error" ng-show="myForm.phoneNumber.$error.required">Required!</span>
+            <span class="error" ng-show="myForm.phoneNumber.$error.minlength">Phone no not less that 10 char.</span>
+            <span class="error" ng-show="myForm.phoneNumber.$error.maxlength">Phone no not more than 11 char.</span>
+            <br><span class="error" ng-show="myForm.phoneNumber.$error.pattern">Please match pattern [+0748-014-051 || 0748-014-051 ]</span>
+        </div>
+
+     <div class="containerMid">
+        <button id="buttonChange" class="buttonLogin" type="button" ng-click="updateDetails()">Actualizare date</button>
+    </div>
+</form>
+
+</div>
+
+
+</body>
+</html>

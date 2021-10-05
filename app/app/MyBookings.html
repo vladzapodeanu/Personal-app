@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+
+    <script src="/lib/jquery.min.js"></script>
+    <script src="/lib/underscore-1.4.4.min.js"></script>
+    <script src="/lib/bootstrap.min.js"></script>
+    <script src="/lib/angular/angular.js"></script>
+    <script src="/js/bookingsCtrl.js"></script>
+    <script type="text/javascript" src="js/map.js"></script>
+    <script src="https://rawgithub.com/gsklee/ngStorage/master/ngStorage.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/app.css"/>
+    <title>MyBookings</title>
+
+</head>
+
+<body ng-app="eventsApp" ng-controller="bookingsCtrl">
+<form>
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link" href="Main.html">New Booking</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="MyProfile.html">My Profile</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="MyBookings.html">My Bookings</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="star.html">Rate App</a>
+        </li>
+        <li class="nav-item">
+            <a  class="nav-link"  ng-click="logOut()">Logout</a>
+        </li>
+    </ul>
+</form>
+
+<!-- Display records -->
+<div class="divBookings" ng-controller="bookingsCtrl" ng-repeat="x in bookings">
+    <h1>Booking</h1>
+    <h2>Data: {{x.data}}</h2>
+    <h2>From: {{x.from_address}}</h2>
+    <h2>To: {{x.to_address}}</h2>
+    <h2>Price: {{x.price}} lei</h2>
+</div>
+
+</div>
+
+</body>
+</html>

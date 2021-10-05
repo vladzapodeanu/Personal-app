@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <script src="/lib/jquery.min.js"></script>
+    <script src="/lib/underscore-1.4.4.min.js"></script>
+    <script src="/lib/bootstrap.min.js"></script>
+    <script src="/lib/angular/angular.js"></script>
+    <script src="/js/eventsCtrl.js"></script>
+    <script type="text/javascript" src="js/map.js"></script>
+    <script src="https://rawgithub.com/gsklee/ngStorage/master/ngStorage.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/app.css"/>
+    <title>Register</title>
+
+</head>
+
+<body ng-app="eventsApp">
+<form name="myForm" ng-app="eventsApp" ng-controller="eventsCtrl">
+    <div class="marginProfile" ng-controller="eventsCtrl" data-ng-init="">
+        <div class="container"> 
+            <h1> 
+              <span style="color:rgb(18, 104, 55)"></span> 
+              <button class='btn btn-success pull-left' ng-click="back()">Back to LogIn</button> 
+            </h1>
+            </div>
+
+
+        <div class="containerMid">
+            <label style="margin:auto;"><p>Name:</p></label>
+            <input type="profile" placeholder="Name..." id="name" name="name" ng-model="name" required>
+        </div>
+
+        <div class="containerMid">
+            <label style="margin:auto;"><p>Email:</p></label>
+            <input type="profile" placeholder="Email..." id="emailP" name="emailP"  ng-pattern="emailPAT" ng-model="emailP">
+            <span class="error" ng-show="myForm.emailP.$error.required">Required!</span>
+            <span class="error" ng-show="myForm.emailP.$error.pattern">Please match pattern[example@example.com]</span>
+        </div>
+          
+        <div class="containerMid" style="display: flex;">
+            <div class="password-wrapper">
+                <label style="margin:auto;"><p>Password:</p></label>
+                <input type="password" placeholder="Password..." id="password" name="password" ng-model="password">
+            </div>
+        </div>
+       
+        <div class="containerMid">
+            <label style="margin:auto;"><p>Phone Number:</p></label>
+            <input type="profile" placeholder="Phone Number..." id="phoneNumber" name="phoneNumber" ng-pattern="phonenumber" ng-model="phoneNumber">
+            <span class="error" ng-show="myForm.phoneNumber.$error.required">Required!</span>
+            <span class="error" ng-show="myForm.phoneNumber.$error.minlength">Phone no not less that 10 char.</span>
+            <span class="error" ng-show="myForm.phoneNumber.$error.maxlength">Phone no not more than 11 char.</span>
+            <br><span class="error" ng-show="myForm.phoneNumber.$error.pattern">Please match pattern [+0748-014-051 || 0748-014-051 ]</span>
+        </div>
+
+        <div class="containerMid">
+            <label style="margin:auto;"><p>Address:</p></label>
+            <input type="profile" placeholder="Address..." id="address" name="address" ng-model="address">
+        </div>
+
+    <div class="containerMid">
+        <button id="buttonChange" class="buttonLogin" type="button" ng-click="saveAcc()">Save Account</button>
+    </div>
+
+    </div>
+   
+</form>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+
+    <script src="/lib/jquery.min.js"></script>
+    <script src="/lib/underscore-1.4.4.min.js"></script>
+    <script src="/lib/bootstrap.min.js"></script>
+    <script src="/lib/angular/angular.js"></script>
+    <script src="/js/adminUserCtrl.js"></script>
+    <script src="https://rawgithub.com/gsklee/ngStorage/master/ngStorage.js"></script>
+    <script type="text/javascript" src="js/map.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    
+    <title>Administrator</title>
+
+    <style>
+        table, th, td {
+          border: 1px solid black;
+          border-collapse: collapse;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        </style>
+
+
+</head>
+<body ng-app="eventsApp" ng-controller="adminUserCtrl">
+
+    <div class="container"> 
+    <h1> 
+      <span style="color:seagreen"></span> 
+      <button class='btn btn-success pull-right' ng-click="logout()">LogOut</button> 
+    </h1>
+    </div>
+
+    <h2 style="text-align:center">Users Table</h2>
+
+        <table style="width:95%">
+            <thead>
+                <tr>
+                    <th style="text-align:center">User ID</th>
+                    <th style="text-align:center">Nume</th>
+                    <th style="text-align:center">Email</th> 
+                    <th style="text-align:center">Telefon</th>
+                    <th style="text-align:center">Adresa</th>
+                    <th style="text-align:center">EDIT</th>
+                    <th style="text-align:center">DELETE</th>
+                  </tr>
+            </thead>
+            
+            <tbody ng-repeat="x in adminUser">
+            <tr>
+                <td style="text-align:center">{{x.id_user}}</td>
+              <td style="text-align:center">{{x.name}}</td>
+              <td style="text-align:center">{{x.email}}</td>
+              <td style="text-align:center">{{x.phone_number}}</td>
+              <td style="text-align:center">{{x.address}}</td>
+              <td style="text-align:center"> 
+                <span style="color:seagreen"></span> 
+                <button class='btn btn-success' ng-click="editUser(x.id_user)">EDIT</button> 
+              </td>
+              <td style="text-align:center"> 
+                <span style="color:seagreen"></span> 
+                <button class='btn btn-success' ng-click="deleteProfile(x.id_user)">DELETE</button> 
+              </td>
+            </tr>
+            </tbody>
+          </table>
+    
+    
+</body>
+</html>

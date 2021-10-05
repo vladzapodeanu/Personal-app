@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <script src="/lib/jquery.min.js"></script>
+    <script src="/lib/underscore-1.4.4.min.js"></script>
+    <script src="/lib/bootstrap.min.js"></script>
+    <script src="/lib/angular/angular.js"></script>
+    <script src="/js/reviewsCtrl.js"></script>
+    <script type="text/javascript" src="js/map.js"></script>
+    <script src="https://rawgithub.com/gsklee/ngStorage/master/ngStorage.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="/css/app.css"/>
+
+    <meta name="viewport" content="width=device-width">
+    <style>
+        .buton {
+            background-color: #e7a005; 
+             border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+        
+        textarea {
+            width: 100%;
+            height: 150px;
+            padding: 12px 20px;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            background-color: #f8f8f8;
+            font-size: 16px;
+            resize: none;
+            }
+
+        .star{
+          color: goldenrod;
+          font-size: 5.0rem;
+          padding: 0 1rem; /* space out the stars */
+          
+        }
+        .star::before{
+          content: '\2606';    /* star outline */
+          cursor: pointer;
+        }
+        .star.rated::before{
+          /* the style for a selected star */
+          content: '\2605';  /* filled star */
+        }
+        
+        .stars{
+            counter-reset: rateme 0;   
+            font-size: 3.0rem;
+            font-weight: 1500;
+        }
+        .star.rated{
+            counter-increment: rateme 1;
+        }
+        .stars::after{
+            content: counter(rateme) '/5';
+        }
+
+        .divReviews {
+            width: 75%;
+            border: 2px solid rgb(223, 208, 2);
+            border-radius: 4px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+
+
+
+<body ng-app="eventsApp" ng-controller="reviewsCtrl">
+
+    <form>
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" href="Main.html">New Booking</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="MyProfile.html">My Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="MyBookings.html">My Bookings</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="star.html">Rate App</a>
+            </li>
+            <li class="nav-item">
+                <a  class="nav-link"  ng-click="logOut()">Logout</a>
+            </li>
+        </ul>
+    </form>
+
+    <h2 style="text-align: center;">Rate our app</h2>
+    <div class="stars" data-rating="0" style="text-align: center;">
+        <span class="star">&nbsp;</span>
+        <span class="star">&nbsp;</span>
+        <span class="star">&nbsp;</span>
+        <span class="star">&nbsp;</span>
+        <span class="star">&nbsp;</span>
+    </div>
+    <div>
+
+    </div>
+
+    
+    <form ng-app="eventsApp" ng-controller="reviewsCtrl">
+        <textarea placeholder="Write here a review/suggestion" id="reviewtxt" name="reviewtxt" ng-model="reviewtxt"></textarea>
+        <button class="buton" type="button" ng-click="createReview()">
+                Send
+        </button>        
+    </form>
+
+    <div style="margin-top: 250px;">
+        <h2 style="text-align: center;">Users reviews:</h2>
+    </div>
+    
+
+    <div class="divReviews" ng-controller="reviewsCtrl" ng-repeat="x in reviews">
+        <h3>User #{{x.id_user}} : {{x.review}}</h3>
+    </div>
+    
+    
+    
+    
+    <script>
+        
+        //initial setup
+        document.addEventListener('DOMContentLoaded', function(){
+            let stars = document.querySelectorAll('.star');
+            stars.forEach(function(star){
+                star.addEventListener('click', setRating); 
+            });
+            
+            let rating = parseInt(document.querySelector('.stars').getAttribute('data-rating'));
+            let target = stars[rating - 1];
+            target.dispatchEvent(new MouseEvent('click'));
+        });
+
+        function setRating(ev){
+            let span = ev.currentTarget;
+            let stars = document.querySelectorAll('.star');
+            let match = false;
+            let num = 0;
+            stars.forEach(function(star, index){
+                if(match){
+                    star.classList.remove('rated');
+                }else{
+                    star.classList.add('rated');
+                }
+                //are we currently looking at the span that was clicked
+                if(star === span){
+                    match = true;
+                    num = index + 1;
+                }
+            });
+            document.querySelector('.stars').setAttribute('data-rating', num);
+        }
+        
+    </script>
+</body>
+</html>

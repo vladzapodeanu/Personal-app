@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5-2LHiOZ7VDEI2pZgXaWEHxeD3tF0LH8&libraries=places"
+            async defer></script>
+    <script src="/lib/jquery.min.js"></script>
+    <script src="/lib/underscore-1.4.4.min.js"></script>
+    <script src="/lib/bootstrap.min.js"></script>
+    <script src="/lib/angular/angular.js"></script>
+    <script src="https://rawgithub.com/gsklee/ngStorage/master/ngStorage.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js"></script>
+
+    <script src="/js/eventsCtrl.js"></script>
+  
+
+    <script src="js/map.js"></script>
+    <link rel="stylesheet" href="/css/app.css"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Rezervari</title>
+
+</head>
+<body onload="initAutocomplete()">
+
+<form name="myForm" ng-app="eventsApp" ng-controller="eventsCtrl">
+
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link active" href="Main.html">New Booking</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="MyProfile.html">My Profile</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="MyBookings.html">My Bookings</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="star.html">Rate App</a>
+        </li>
+        <li class="nav-item">
+            <a  class="nav-link"  ng-click="logOut()">Logout</a>
+        </li>
+    </ul>
+
+    <div class="wrapper fadeInDown" ng-app="eventsApp" ng-controller="eventsCtrl">
+        <div class="row">
+            <div class="col-md-6">
+                <label for="autocompletePickUp"><p>Adresa ridicare</p></label>
+                <input id="autocompletePickUp" placeholder="Introduceti adresa ridicare..." type="text"
+                       ng-model="autocompletePickUp.text"/>
+            </div>
+            <div class="col-md-6">
+                <label for="autocompleteDestination"><p>Adresa destinatie</p></label>
+                <input id="autocompleteDestination" placeholder="Introduceti adresa destinatiei..." type="text"
+                       ng-model="autocompleteDestination.text"/>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-6">
+                <label for="passengerNumber"><p>Numar Pasageri</p></label>
+                <input id="passengerNumber" name="passengerNumber" placeholder="Introduceti numarul de pasageri..." type="text" ng-model="passengerNumber">
+            </div>
+            <div class="col-md-6">
+                <label for="selectCard"><p>Selecteaza tip plata</p></label>
+                <div class="cars-container">
+                    <div class="select-container">
+                        <select class="selectCard" id="selectCard" name="selectCard" type="text" ng-model="selectCard">
+                            <option value="payPal">Paypal</option>
+                            <option value="cash">Cash</option>
+                            <option value="bankTransfer">Bank Transfer</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+          
+        </div>
+
+        <div class="row">
+            <div class="col-md-6" id="latLNG">
+                <p id="distance" ng-bind="distanceH"></p>
+                <p id="duration" ng-bind="durationH"></p>
+                <p id="price" ng-bind="priceH"></p>
+            </div>
+
+           
+
+        </div>
+
+        <div id="map"></div>
+
+
+
+        <div class="row" id="latLNG">
+            <div class="col-md-6">
+                <p id="latPickUp" ng-model="latPickUp"></p>
+                <p id="lngPickUp" ng-model="lngPickUp"></p>
+            </div>
+            <div class="col-md-6">
+                <p id="latDestination" ng-model="latDestination"></p>
+                <p id="lngDestination" ng-model="lngDestination"></p>
+            </div>
+        </div>
+
+        <div class="containerMid">
+            <button id="buttonSend" class="button" type="button" ng-click="createBooking()"
+                    ng-disable="!distanceH || !selectCard || !passengerNumber || !autocompletePickUp.text || !autocompleteDestination.text">
+                Inregistreaza Booking
+            </button>
+        </div>
+        
+    </div>
+</form>
+
+</body>
+</html>

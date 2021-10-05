@@ -1,0 +1,37 @@
+{
+  "name": "demoapp",
+  "version": "1.0.0",
+  "description": "This project is a sample application demonstrating a more fully developed realistic single page angular application.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon scripts/web-server.js"
+  },
+  "author": "Joe Eames & Jim Cooper",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "bootstrap": "^4.5.2",
+    "cors": "^2.8.5",
+    "dhtmlx-scheduler": "^5.3.10",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-jwt": "^6.0.0",
+    "express-validator": "^6.6.1",
+    "jsonwebtoken": "^8.5.1",
+    "mailgun-js": "^0.22.0",
+    "mariadb": "^2.4.2",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.1.0",
+    "ngstorage": "^0.3.11",
+    "nodemon": "^2.0.4",
+    "sequelize": "^6.3.4",
+    "util": "^0.12.3",
+    "utils": "^0.3.1"
+  }
+}

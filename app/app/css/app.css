@@ -1,0 +1,347 @@
+/* app css stylesheet */
+html {
+  height: 100%;
+  font-family: Roboto;
+
+}
+
+body {
+  background-color: #fafafa;
+  background-size: cover; /* <------ */
+  background-repeat: repeat-y;
+
+  background-position: center center; /* optional, center the image */
+}
+
+p {
+  color: #212529;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+form {
+  max-width: 960px;
+  margin: 60px auto;
+}
+ul {
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0;
+  z-index: 9;
+}
+.item {
+  width: 45%;
+  padding-right: 30px;
+
+}
+
+
+@media only screen and (max-width: 450px) {
+
+  #map {
+      width: 100%;
+  }
+
+  .item {
+      width: 100%;
+  }
+}
+
+.item-car {
+  padding-right: 30px;
+  width: 20%;
+}
+
+input[type=text], input[type=password], [type = email], [type = phonenumber] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 0px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.button-container {
+  flex: 1;
+}
+
+.button {
+  background-color: seagreen;
+  border: none;
+  padding: 13px 16px;
+  text-align: center;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  width: 90%;
+  border-radius: 5px;
+}
+
+.button[disabled]{
+  background-color: grey;
+}
+
+#buttonSend {
+  color: #fafafa;
+  font-family: Roboto;
+  float: right;
+}
+#buttonChange {
+  color: #fafafa;
+  font-family: Roboto;
+  float: right;
+  margin-top: 5px;
+}
+
+.containerMid {
+  padding: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  text-align: center;
+  width: 50%;
+  margin: auto;
+}
+
+.password-wrapper {
+  width: 100%;
+  display: flex;
+}
+
+.password-wrapper input {
+  width: 75%;
+}
+
+.buttonLogin {
+  background-color: seagreen;
+  border: none;
+  padding: 13px 16px;
+  text-align: center;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  width: 30%;
+  border-radius: 5px;
+  margin: auto;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.marginTop {
+  margin-top: 10%;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+#map {
+  height: 400px;
+  margin-top: 10px;
+}
+
+.select-container {
+  flex: 1;
+}
+
+select {
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 15px;
+  width: 90%;
+}
+
+.selectCard {
+  padding: 9.5px 20px;
+  margin: 0px 0;
+  border-radius: 5px;
+  font-size: 15px;
+  width: 100%;
+  display: flex;
+  border: 1px solid #ccc;
+  height: 46px;
+}
+
+.selectVehicle {
+  padding: 9.5px 20px;
+  margin: 0px 0;
+  border-radius: 5px;
+  font-size: 15px;
+  width: 100%;
+  display: flex;
+  border: 1px solid #ccc;
+  height: 46px;
+}
+
+.cars-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.results {
+  padding: 16px;
+}
+#latLNG {
+  padding: 16px;
+}
+.red-text {
+  color: red;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  border-radius: 5px;
+  margin-bottom: 10px;
+
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+h2 {
+  color: #212529;
+}
+li a:hover {
+  background-color: #111;
+}
+
+.divBookings {
+  width: 25%;
+  border: 5px red;
+  text-align: center;
+  border: 2px solid darkgreen;
+  margin: 60px auto;
+  color: #212529;
+
+}
+
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeInDown {
+  0% {
+      opacity: 0;
+      -webkit-transform: translate3d(0, -100%, 0);
+      transform: translate3d(0, -100%, 0);
+  }
+  100% {
+      opacity: 1;
+      -webkit-transform: none;
+      transform: none;
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+      opacity: 0;
+      -webkit-transform: translate3d(0, -100%, 0);
+      transform: translate3d(0, -100%, 0);
+  }
+  100% {
+      opacity: 1;
+      -webkit-transform: none;
+      transform: none;
+  }
+}
+
+/* Simple CSS3 Fade-in Animation */
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+.fadeIn {
+  opacity:0;
+  -webkit-animation:fadeIn ease-in 1;
+  -moz-animation:fadeIn ease-in 1;
+  animation:fadeIn ease-in 1;
+
+  -webkit-animation-fill-mode:forwards;
+  -moz-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
+
+  -webkit-animation-duration:1s;
+  -moz-animation-duration:1s;
+  animation-duration:1s;
+}
+
+.fadeIn.first {
+  -webkit-animation-delay: 0.2s;
+  -moz-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+
+.fadeIn.second {
+  -webkit-animation-delay: 0.3s;
+  -moz-animation-delay: 0.3s;
+  animation-delay: 0.3s;
+}
+
+.fadeIn.third {
+  -webkit-animation-delay: 0.4s;
+  -moz-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+}
+
+.fadeIn.fourth {
+  -webkit-animation-delay: 1s;
+  -moz-animation-delay: 1s;
+  animation-delay: 1s;
+}
+
+/* Simple CSS3 Fade-in Animation */
+.underlineHover:after {
+  display: block;
+  left: 0;
+  bottom: -10px;
+  width: 0;
+  height: 2px;
+  background-color: #56baed;
+  content: "";
+  transition: width 0.2s;
+}
+
+.underlineHover:hover {
+  color: #0d0d0d;
+}
+
+.underlineHover:hover:after{
+  width: 100%;
+}
+
+input[type=profile] {
+  width: 75%;
+  padding: 12px 20px;
+  margin: 0px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 5px;
+  text-align: center;
+}
+
+
